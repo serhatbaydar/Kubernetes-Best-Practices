@@ -124,12 +124,7 @@ In order to trigger this pipeline you will need your own Github account and fork
 
    ![Jenkins Azure Credentials](./img/az-creds.png)
 
-#### Edit Jenkinsfile Variable
 
-1. Edit Jenkinsfile  with the following command `code Jenkinsfile`
-
-2. Replace the following variable with the Azure Container Registry created previously
-   * def  ACRNAME = '<container_registry_name>'
 
 #### Create Jenkins Multibranch Pipeline
 
