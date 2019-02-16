@@ -56,7 +56,7 @@ The Kubernetes Horizontal Pod Autoscaler (HPA) automatically scales the number o
 2. Validate that 5 nodes are now available in the cluster
 
 
-### Cluster Autoscaler (PREVIEW)
+### Cluster Autoscaler 
 
 As resource demands increase, the cluster autoscaler allows your cluster to grow to meet that demand based on constraints you set. The cluster autoscaler (CA) does this by scaling your agent nodes based on pending pods.
 
@@ -64,7 +64,55 @@ As resource demands increase, the cluster autoscaler allows your cluster to grow
 
 1. Follow the steps in this article to configure autoscaling. * [Cluster Autoscaler on Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/autoscaler)
 
+     Install the aks-preview Azure CLI extension using the az extension add command, as shown in the following example;
+     
+     ```bash 
+     az extension add --name aks-preview
+      ```
+### Create an AKS cluster and enable the cluster autoscaler     
+ 
+ The following example creates an AKS cluster with virtual machine scale set and the cluster autoscaler enabled, and uses a minimum of 1 and maximum of 3 nodes:     
+ 
+# First create a resource group
+      ```bash
+      az group create --name myResourceGroup --location canadaeast
+      ```
+    
+## Now create the AKS cluster and enable the cluster autoscaler
+      ```bash
+      az aks create \
+      --resource-group myResourceGroup \
+      --name myAKSCluster \
+      --kubernetes-version 1.12.4 \
+      --node-count 1 \
+      --enable-vmss \
+      --enable-cluster-autoscaler \
+      --min-count 1 \
+      --max-count 3   
+        ```
+### Enable the cluster autoscaler on an existing AKS cluster
 
+You can enable the cluster autoscaler on an existing AKS cluster that meets the requirements as outlined in the preceding Before you begin section. Use the az aks update command and choose to --enable-cluster-autoscaler, then specify a node --min-count and --max-count. The following example enables cluster autoscaler on an existing cluster that uses a minimum of 1 and maximum of 3 nodes:
+   
+    ```bash
+     az aks update \
+     --resource-group myResourceGroup \
+     --name myAKSCluster \
+     --enable-cluster-autoscaler \
+     --min-count 1 \
+     --max-count 3 
+      ``` 
+### Disable the cluster autoscale
+
+If you no longer wish to use the cluster autoscaler, you can disable it using the az aks update command. Nodes aren't removed when the cluster autoscaler is disabled.
+     
+     ```bash
+      az aks update \
+      --resource-group myResourceGroup \
+      --name myAKSCluster \
+      --disable-cluster-autoscaler
+      
+      
 ## Troubleshooting / Debugging
 
 
