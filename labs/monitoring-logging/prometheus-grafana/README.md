@@ -35,18 +35,23 @@ This lab will walkthrough using the Core OS Prometheus Operator to add Monitorin
     ``` bash
     # Add the Core OS Helm Reop in case it is not already installed
     helm repo add coreos https://s3-eu-west-1.amazonaws.com/coreos-charts/stable/
+    
     # Create a new Monitoring Namespace to deploy Prometheus Operator too
     kubectl create namespace monitoring
+    
     # Install Prometheus Operator
     # NOTE: The output of this command will say failed because there is a job (pod)
     # running and it takes a while to complete. It is ok, proceed to next step.
     helm install coreos/prometheus-operator --version 0.0.27 --name prometheus-operator --namespace monitoring
     kubectl -n monitoring get all -l "release=prometheus-operator"
+    
     # Install Prometheus Configuration and Setup for Kubernetes
     helm install coreos/kube-prometheus --version 0.0.95 --name kube-prometheus --namespace monitoring
     kubectl -n monitoring get all -l "release=kube-prometheus"
+    
     # Check to see that all the Pods are running
     kubectl get pods -n monitoring
+    
     # Other Useful Prometheus Operator Resources to Peruse
     kubectl get prometheus -n monitoring
     kubectl get prometheusrules -n monitoring
