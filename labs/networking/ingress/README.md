@@ -70,8 +70,9 @@ An ingress controller is a piece of software that provides reverse proxy, config
 
     * Execute the script
         ```
-        ~/Kubernetes-Best-Practices/labs/networking/ingress/configure-publicip-dns.sh
-        ```
+      cd Kubernetes-Best-Practices/labs/networking/ingress
+      sh configure-publicip-dns.sh
+      ```
 
     * Note the new DNS name for your public IP. It should be something like `brian13270.eastus.cloudapp.azure.com`. You can look it up in the portal in the "MC" resource group for your cluster. 
 
