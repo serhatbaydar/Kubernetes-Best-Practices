@@ -73,12 +73,12 @@ As resource demands increase, the cluster autoscaler allows your cluster to grow
  
  The following example creates an AKS cluster with virtual machine scale set and the cluster autoscaler enabled, and uses a minimum of 1 and maximum of 3 nodes:     
  
-# First create a resource group
+### First create a resource group
       ```bash
       az group create --name myResourceGroup --location canadaeast
       ```
     
-## Now create the AKS cluster and enable the cluster autoscaler
+### Now create the AKS cluster and enable the cluster autoscaler
       ```bash
       az aks create \
       --resource-group myResourceGroup \
