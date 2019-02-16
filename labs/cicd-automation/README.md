@@ -17,8 +17,7 @@ In this lab you will setup pipelines for automating application creation and dep
 ## Options
 
 1. [Jenkins](jenkins/README.md)
-2. [Azure DevOps](azure-devops/README.md)
-3. [Brigade](brigade/README.md)
+
 
 ## Troubleshooting / Debugging
 
