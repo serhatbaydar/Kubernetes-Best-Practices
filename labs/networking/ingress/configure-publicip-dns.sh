@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Public IP address
-IP="23.96.88.158"
+IP="137.117.57.130"
 
 # Name to associate with public IP address
-DNSNAME=$UNIQUE_SUFFIX
+DNSNAME=servicetracker
 
 # Get the resource-id of the public ip
 PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
