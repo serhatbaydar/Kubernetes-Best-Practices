@@ -46,7 +46,7 @@ In order to trigger this pipeline you will need your own Github account and fork
 
     ![Jenkins Modify ACR](./img/modify_acr.png)
 
-4. Grab your clone URL from Github which will look something like: `https://github.com/thedude-lebowski/kubernetes-hackfest.git`
+4. Grab your clone URL from Github which will look something like: `https://github.com/eozkurt/Kubernetes-Best-Practices.git`
 
     ![Jenkins GitHub Clone](./img/github-clone.png)
 
