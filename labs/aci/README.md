@@ -233,10 +233,11 @@ For this lab, we are creating a new AKS cluster. Depending on your quota, you ma
     kubectl create ns hackfest
     ```
     c. Initialize Helm and Tiller:
-
-      kubectl apply -f ~/Kubernetes-Best-Practices//labs/helm-setup-deploy/rbac-config.yaml
-      helm init --service-account tiller --upgrade
-      
+    
+    ```bash
+    kubectl apply -f ~/Kubernetes-Best-Practices//labs/helm-setup-deploy/rbac-config.yaml
+    helm init --service-account tiller --upgrade
+    ```
     d. Install each chart as below:
 
     ```bash
