@@ -246,8 +246,9 @@ For this lab, we are creating a new AKS cluster. Depending on your quota, you ma
     helm upgrade --install weather-api ~/Kubernetes-Best-Practices/charts/weather-api --namespace hackfest
     helm upgrade --install flights-api ~/Kubernetes-Best-Practices/charts/flights-api --namespace hackfest
     helm upgrade --install service-tracker-ui ~/Kubernetes-Best-Practices/charts/service-tracker-ui --namespace hackfest
+    
+    kubectl get pod,svc -n hackfest  
     ```
-
     e. Validate that the service-tracker-ui is up and running. Eg - browse to http://your-public-ip:8080 
 
 8. Create a new deployment targeting virtual node
