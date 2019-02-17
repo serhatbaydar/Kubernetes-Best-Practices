@@ -232,8 +232,12 @@ For this lab, we are creating a new AKS cluster. Depending on your quota, you ma
     ```bash
     kubectl create ns hackfest
     ```
+    c. Initialize Helm and Tiller:
 
-    c. Install each chart as below:
+      kubectl apply -f ~/Kubernetes-Best-Practices//labs/helm-setup-deploy/rbac-config.yaml
+      helm init --service-account tiller --upgrade
+      
+    d. Install each chart as below:
 
     ```bash
     helm upgrade --install data-api ~/Kubernetes-Best-Practices/charts/data-api --namespace hackfest
@@ -243,7 +247,7 @@ For this lab, we are creating a new AKS cluster. Depending on your quota, you ma
     helm upgrade --install service-tracker-ui ~/Kubernetes-Best-Practices/charts/service-tracker-ui --namespace hackfest
     ```
 
-    d. Validate that the service-tracker-ui is up and running. Eg - browse to http://your-public-ip:8080 
+    e. Validate that the service-tracker-ui is up and running. Eg - browse to http://your-public-ip:8080 
 
 8. Create a new deployment targeting virtual node
 
